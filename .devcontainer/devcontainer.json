@@ -1,0 +1,26 @@
+{
+  "name": "ReelScore Development",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/python:1": {}
+  },
+  "postCreateCommand": "cd backend && pip install -r requirements.txt && cd ../mobile && flutter pub get",
+  "forwardPorts": [8000, 5432],
+  "portsAttributes": {
+    "8000": {
+      "label": "FastAPI Backend",
+      "onAutoForward": "openPreview"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "dart-code.flutter",
+        "dart-code.dart-code",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  }
+}
